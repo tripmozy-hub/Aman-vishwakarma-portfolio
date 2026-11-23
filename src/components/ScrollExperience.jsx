@@ -76,7 +76,11 @@ export default function ScrollExperience() {
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.8, y: 20 }}
             transition={{ duration: 0.3 }}
-            className="fixed bottom-6 right-6 z-40 flex items-center gap-2 select-none"
+            style={{
+              bottom: 'max(1.25rem, calc(env(safe-area-inset-bottom, 0px) + 0.75rem))',
+              right: 'max(1rem, calc(env(safe-area-inset-right, 0px) + 0.75rem))'
+            }}
+            className="fixed z-40 flex items-center gap-2 select-none"
           >
             {/* Active Section Indicator Capsule */}
             <div className="hidden sm:flex items-center gap-2 px-3.5 py-2 rounded-full bg-black/85 backdrop-blur-xl border border-white/15 text-white shadow-2xl">

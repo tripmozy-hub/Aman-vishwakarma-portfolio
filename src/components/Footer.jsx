@@ -8,7 +8,10 @@ export default function Footer() {
   };
 
   return (
-    <footer className="w-full bg-[#050506] border-t border-white/10 pt-16 pb-12 px-6 sm:px-8 lg:px-12 text-left selection:bg-[#F20D20] selection:text-white">
+    <footer 
+      style={{ paddingBottom: 'max(3rem, calc(env(safe-area-inset-bottom, 0px) + 2rem))' }}
+      className="w-full bg-[#050506] border-t border-white/10 pt-16 px-4 sm:px-8 lg:px-12 text-left selection:bg-[#F20D20] selection:text-white"
+    >
       <div className="max-w-7xl mx-auto">
         
         {/* Main Footer Row */}

@@ -9,7 +9,8 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="relative min-h-screen w-full bg-[#FFFFFF] text-[#0A0A0C] flex flex-col justify-between pt-24 pb-6 px-6 sm:px-8 lg:px-12 overflow-hidden select-none"
+      className="relative min-h-[100vh] min-h-[100dvh] w-full bg-[#FFFFFF] text-[#0A0A0C] flex flex-col justify-between pt-20 sm:pt-24 pb-6 px-4 sm:px-8 lg:px-12 overflow-hidden select-none"
+      style={{ paddingBottom: 'max(1.5rem, env(safe-area-inset-bottom, 0px))' }}
     >
       {/* Subtle Depth Background */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] sm:w-[900px] h-[700px] sm:h-[900px] bg-gradient-to-b from-[#f2f4f7] to-transparent rounded-full blur-[100px] pointer-events-none" />
@@ -18,7 +19,7 @@ export default function Hero() {
       <div className="relative z-30 flex justify-end items-center max-w-7xl mx-auto w-full mb-2">
         <button
           onClick={() => setUseRealPhoto(!useRealPhoto)}
-          className="group flex items-center gap-2 px-3 py-1.5 rounded-full bg-black/5 hover:bg-black/10 border border-black/10 text-[11px] font-mono-code text-gray-700 transition-all duration-200 cursor-pointer"
+          className="group flex items-center gap-2 px-3.5 py-2 rounded-full bg-black/5 hover:bg-black/10 active:scale-95 border border-black/10 text-[11px] font-mono-code text-gray-700 transition-all duration-200 cursor-pointer min-h-[38px]"
           title="Toggle silhouette vs photo"
         >
           <span className="w-2 h-2 rounded-full bg-[#f20d20] group-hover:scale-125 transition-transform" />
@@ -31,11 +32,11 @@ export default function Hero() {
         
         {/* Layer 1: Giant EXPLORE MY PORTFOLIO Headline */}
         <div className="w-full text-center relative z-10 pt-2 sm:pt-0">
-          <h1 className="font-anton text-5xl sm:text-7xl md:text-9xl lg:text-[132px] font-black uppercase tracking-tight text-[#08080a] leading-[0.9]">
+          <h1 className="font-anton text-4xl sm:text-7xl md:text-9xl lg:text-[132px] font-black uppercase tracking-tight text-[#08080a] leading-[0.9]">
             EXPLORE MY
           </h1>
 
-          <div className="font-anton text-5xl sm:text-7xl md:text-9xl lg:text-[138px] font-black uppercase tracking-tight text-black/20 leading-[0.88] mt-0 sm:-mt-3">
+          <div className="font-anton text-4xl sm:text-7xl md:text-9xl lg:text-[138px] font-black uppercase tracking-tight text-black/20 leading-[0.88] mt-0 sm:-mt-3">
             PORTFOLIO
           </div>
         </div>

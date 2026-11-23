@@ -33,12 +33,12 @@ export default function FeaturedProject() {
           </div>
 
           {/* Project Switcher Tabs */}
-          <div className="flex flex-wrap items-center gap-2 p-1.5 rounded-full bg-black/5 border border-black/10">
+          <div className="flex items-center gap-2 p-1.5 rounded-2xl sm:rounded-full bg-black/5 border border-black/10 overflow-x-auto no-scrollbar max-w-full">
             {projects.map((p, idx) => (
               <button
                 key={p.id}
                 onClick={() => setSelectedIdx(idx)}
-                className={`px-4 sm:px-5 py-2 rounded-full font-mono-code text-xs font-bold tracking-wider uppercase transition-all duration-200 cursor-pointer ${
+                className={`whitespace-nowrap px-4 sm:px-5 py-2.5 rounded-full font-mono-code text-xs font-bold tracking-wider uppercase transition-all duration-200 active:scale-95 cursor-pointer shrink-0 min-h-[40px] ${
                   selectedIdx === idx
                     ? 'bg-black text-white shadow-md'
                     : 'text-gray-600 hover:text-black hover:bg-black/5'

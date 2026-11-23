@@ -7,6 +7,8 @@ export default function WorksDeck() {
   // Modes: 'wheel' (Frames 19 & 20: Hexagonal circular ring) vs 'deck' (Frames 21-26: 3D vertical cycling stack)
   const [viewMode, setViewMode] = useState('deck'); // default to interactive deck as seen in video
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [touchStartY, setTouchStartY] = useState(null);
+  const [touchEndY, setTouchEndY] = useState(null);
 
   const projects = portfolioConfig.works26;
   const currentProject = projects[currentIndex];
@@ -17,6 +19,27 @@ export default function WorksDeck() {
 
   const handleNext = () => {
     setCurrentIndex((prev) => (prev < projects.length - 1 ? prev + 1 : 0));
+  };
+
+  // Vertical touch swipe gesture for cycling the deck on mobile
+  const onTouchStart = (e) => {
+    setTouchEndY(null);
+    setTouchStartY(e.targetTouches[0].clientY);
+  };
+
+  const onTouchMove = (e) => {
+    setTouchEndY(e.targetTouches[0].clientY);
+  };
+
+  const onTouchEnd = () => {
+    if (!touchStartY || !touchEndY) return;
+    const distance = touchStartY - touchEndY;
+    const minSwipeDistance = 40;
+    if (distance > minSwipeDistance) {
+      handleNext(); // swipe up to go next
+    } else if (distance < -minSwipeDistance) {
+      handlePrev(); // swipe down to go prev
+    }
   };
 
   return (
@@ -53,14 +76,14 @@ export default function WorksDeck() {
 
         {/* VIEW 1: HEXAGONAL CIRCULAR WHEEL (Frames 19 & 20) */}
         {viewMode === 'wheel' && (
-          <div className="relative flex-1 flex items-center justify-center min-h-[500px]">
+          <div className="relative flex-1 flex items-center justify-center min-h-[380px] sm:min-h-[500px]">
             {/* Center Label: "WORKS '26" (Frames 19 & 20) */}
             <div className="text-center z-10 pointer-events-none">
-              <span className="font-anton text-4xl sm:text-6xl uppercase tracking-wider text-black">
+              <span className="font-anton text-3xl sm:text-6xl uppercase tracking-wider text-black">
                 WORKS '26
               </span>
-              <p className="text-[11px] font-mono-code text-gray-500 mt-1 uppercase">
-                [ CLICK ANY CARD TO INSPECT ]
+              <p className="text-[10px] sm:text-[11px] font-mono-code text-gray-500 mt-1 uppercase">
+                [ TAP ANY CARD TO INSPECT ]
               </p>
             </div>
 
@@ -68,7 +91,8 @@ export default function WorksDeck() {
             <div className="absolute inset-0 flex items-center justify-center">
               {projects.map((proj, idx) => {
                 const angle = (idx * 360) / projects.length; // 60 deg each
-                const radius = 230; // Radius in pixels for desktop
+                const isMobile = typeof window !== 'undefined' && window.innerWidth < 640;
+                const radius = isMobile ? 120 : 230; // Adaptive radius for mobile viewports
                 const rad = (angle * Math.PI) / 180;
                 const x = Math.cos(rad) * radius;
                 const y = Math.sin(rad) * radius;
@@ -84,7 +108,7 @@ export default function WorksDeck() {
                     animate={{ scale: 1, opacity: 1, x, y, rotate: angle + 90 }}
                     transition={{ duration: 0.6, delay: idx * 0.08 }}
                     whileHover={{ scale: 1.15, zIndex: 30 }}
-                    className="absolute w-[140px] sm:w-[170px] aspect-[16/10] rounded-xl overflow-hidden shadow-lg border border-black/15 bg-white cursor-pointer group"
+                    className="absolute w-[105px] sm:w-[170px] aspect-[16/10] rounded-xl overflow-hidden shadow-lg border border-black/15 bg-white cursor-pointer group gpu-accel active:scale-95 transition-transform"
                   >
                     <img
                       src={proj.image}
@@ -101,7 +125,12 @@ export default function WorksDeck() {
 
         {/* VIEW 2: 3D CYCLING VERTICAL DECK (Frames 21-26) */}
         {viewMode === 'deck' && (
-          <div className="relative flex-1 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center my-auto min-h-[440px]">
+          <div 
+            className="relative flex-1 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center my-auto min-h-[420px] touch-pan-x"
+            onTouchStart={onTouchStart}
+            onTouchMove={onTouchMove}
+            onTouchEnd={onTouchEnd}
+          >
             
             {/* LEFT COLUMN: Project Title & Headline (Frames 22-26) */}
             <motion.div
@@ -114,21 +143,21 @@ export default function WorksDeck() {
               <span className="font-mono-code text-[11px] text-[#f20d20] font-bold tracking-widest uppercase">
                 0{currentIndex + 1} // 0{projects.length}
               </span>
-              <h3 className="font-anton text-4xl sm:text-5xl uppercase tracking-tight text-black leading-none">
+              <h3 className="font-anton text-3xl sm:text-5xl uppercase tracking-tight text-black leading-none">
                 {currentProject.title}
               </h3>
-              <p className="font-syne text-lg font-bold text-gray-800 leading-snug">
+              <p className="font-syne text-base sm:text-lg font-bold text-gray-800 leading-snug">
                 "{currentProject.headline}"
               </p>
             </motion.div>
 
             {/* CENTER COLUMN: Floating 3D Stacked Browser Window (Frames 22-26) */}
-            <div className="lg:col-span-6 flex flex-col items-center justify-center relative min-h-[360px] perspective-[1000px]">
+            <div className="lg:col-span-6 flex flex-col items-center justify-center relative min-h-[300px] sm:min-h-[360px] perspective-[1000px]">
               
               {/* Previous Floating Card (Floating above in perspective) */}
               <div 
                 onClick={handlePrev}
-                className="absolute -top-10 w-[78%] aspect-[16/10] rounded-2xl overflow-hidden opacity-35 filter blur-[0.5px] scale-90 cursor-pointer border border-black/10 shadow-md transition-all hover:opacity-60"
+                className="absolute -top-8 sm:-top-10 w-[78%] aspect-[16/10] rounded-2xl overflow-hidden opacity-35 filter blur-[0.5px] scale-90 cursor-pointer border border-black/10 shadow-md transition-all hover:opacity-60 gpu-accel"
                 style={{ transform: 'translateY(-20px) rotateX(16deg)' }}
               >
                 <img
@@ -146,7 +175,7 @@ export default function WorksDeck() {
                   animate={{ opacity: 1, y: 0, scale: 1 }}
                   exit={{ opacity: 0, y: -30, scale: 0.95 }}
                   transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
-                  className="relative z-20 w-full max-w-[540px] aspect-[16/10] rounded-2xl overflow-hidden shadow-[0_25px_60px_rgba(0,0,0,0.18)] border border-black/15 bg-white group cursor-pointer"
+                  className="relative z-20 w-full max-w-[540px] aspect-[16/10] rounded-2xl overflow-hidden shadow-[0_25px_60px_rgba(0,0,0,0.18)] border border-black/15 bg-white group cursor-pointer gpu-accel"
                   onClick={handleNext}
                 >
                   <img
@@ -163,7 +192,7 @@ export default function WorksDeck() {
               {/* Next Card Sitting Below */}
               <div 
                 onClick={handleNext}
-                className="absolute -bottom-10 w-[78%] aspect-[16/10] rounded-2xl overflow-hidden opacity-35 filter blur-[0.5px] scale-90 cursor-pointer border border-black/10 shadow-md transition-all hover:opacity-60"
+                className="absolute -bottom-8 sm:-bottom-10 w-[78%] aspect-[16/10] rounded-2xl overflow-hidden opacity-35 filter blur-[0.5px] scale-90 cursor-pointer border border-black/10 shadow-md transition-all hover:opacity-60 gpu-accel"
                 style={{ transform: 'translateY(20px) rotateX(-16deg)' }}
               >
                 <img
@@ -218,10 +247,10 @@ export default function WorksDeck() {
             </span>
           </div>
 
-          {/* Cycling Cue matching Frames 22-26: "✦ SCROLL OR DRAG TO CYCLE" */}
+          {/* Cycling Cue */}
           <div className="flex items-center gap-2 font-mono-code text-xs text-gray-500 uppercase">
             <span className="text-[#f20d20]">✦</span>
-            <span>CLICK CARD OR ARROWS TO CYCLE DECK</span>
+            <span>TAP, SWIPE OR USE ARROWS TO CYCLE DECK</span>
           </div>
 
           {/* Navigation Controls */}

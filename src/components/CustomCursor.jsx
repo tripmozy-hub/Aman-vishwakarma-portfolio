@@ -8,8 +8,13 @@ export default function CustomCursor() {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
-    // Only enable on desktop pointer devices
-    const isTouch = window.matchMedia('(pointer: coarse)').matches;
+    // Strictly disable on all mobile touch devices (Android, iOS Safari, tablets)
+    const isTouch = 
+      typeof window !== 'undefined' && (
+        window.matchMedia('(pointer: coarse)').matches ||
+        'ontouchstart' in window ||
+        (navigator.maxTouchPoints && navigator.maxTouchPoints > 0)
+      );
     if (isTouch) return;
 
     const onMouseMove = (e) => {

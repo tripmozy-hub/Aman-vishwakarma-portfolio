@@ -9,16 +9,26 @@
     --cyan-glow: rgba(0, 240, 255, 0.4);
     --blue-glow: rgba(0, 102, 255, 0.5);
     --red-glow: rgba(242, 13, 32, 0.5);
+    --sat: env(safe-area-inset-top, 0px);
+    --sab: env(safe-area-inset-bottom, 0px);
+    --sal: env(safe-area-inset-left, 0px);
+    --sar: env(safe-area-inset-right, 0px);
   }
 
   * {
     box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
   }
 
   html {
     scroll-behavior: smooth;
     background-color: #080808;
     color: #ffffff;
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
   }
 
   body {
@@ -26,6 +36,17 @@
     color: #ffffff;
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+    touch-action: manipulation;
+    min-height: 100vh;
+    min-height: 100dvh;
+  }
+
+  /* Prevent iOS automatic zoom when focusing inputs by ensuring >=16px on mobile */
+  @media screen and (max-width: 768px) {
+    input, select, textarea {
+      font-size: 16px !important;
+    }
   }
 
   /* Custom Scrollbar */
@@ -113,4 +134,37 @@
 /* Smooth transitions */
 .transition-editorial {
   transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Mobile & Touch Optimizations for Android & iOS */
+.pt-safe {
+  padding-top: max(1rem, env(safe-area-inset-top, 0px));
+}
+
+.pb-safe {
+  padding-bottom: max(1.5rem, env(safe-area-inset-bottom, 0px));
+}
+
+.safe-h-screen {
+  min-height: 100vh;
+  min-height: 100dvh;
+}
+
+/* GPU acceleration for smooth 60fps animations on mobile Safari & Chrome */
+.gpu-accel {
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-perspective: 1000;
+  perspective: 1000;
+}
+
+/* Hide scrollbar on mobile horizontal lists while keeping native momentum scroll */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }

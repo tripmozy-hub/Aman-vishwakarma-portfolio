@@ -36,26 +36,42 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Lock body scroll on iOS Safari & Android when mobile drawer is open
+  useEffect(() => {
+    if (mobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+      document.body.style.touchAction = 'none';
+    } else {
+      document.body.style.overflow = '';
+      document.body.style.touchAction = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+      document.body.style.touchAction = '';
+    };
+  }, [mobileMenuOpen]);
+
   return (
     <>
       <header
+        style={{ paddingTop: 'max(0.75rem, env(safe-area-inset-top, 0px))' }}
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           scrolled
             ? isLightSection
-              ? 'bg-white/85 backdrop-blur-md border-b border-black/10 py-3.5 shadow-sm'
-              : 'bg-black/85 backdrop-blur-md border-b border-white/10 py-3.5 shadow-md'
-            : 'bg-transparent py-5'
+              ? 'bg-white/90 backdrop-blur-md border-b border-black/10 pb-3 shadow-sm'
+              : 'bg-black/90 backdrop-blur-md border-b border-white/10 pb-3 shadow-md'
+            : 'bg-transparent pb-4'
         }`}
       >
-        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 flex items-center justify-between">
+        <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-12 flex items-center justify-between">
           
           {/* Logo: "AMAN.V •" */}
           <a
             href="#home"
-            className="group flex items-center gap-2 select-none"
+            className="group flex items-center gap-2 select-none active:scale-95 transition-transform"
           >
             <span
-              className={`font-anton text-2xl tracking-[0.18em] uppercase transition-colors duration-200 ${
+              className={`font-anton text-2xl sm:text-2xl tracking-[0.18em] uppercase transition-colors duration-200 ${
                 isLightSection ? 'text-black' : 'text-white'
               }`}
             >
@@ -101,7 +117,7 @@ export default function Navbar() {
             <a
               href={portfolioConfig.personal.resumeUrl}
               download="Aman_Vishwakarma_CV.pdf"
-              className={`inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-bold tracking-wider uppercase transition-all duration-200 ${
+              className={`inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-bold tracking-wider uppercase transition-all duration-200 active:scale-95 ${
                 isLightSection
                   ? 'border border-black/20 text-black hover:bg-black hover:text-white'
                   : 'border border-white/20 text-white hover:bg-white hover:text-black'
@@ -112,10 +128,10 @@ export default function Navbar() {
             </a>
           </div>
 
-          {/* Mobile Menu Hamburger Toggle */}
+          {/* Mobile Menu Hamburger Toggle (Min 44x44px touch target) */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className={`md:hidden p-2 rounded-lg transition-colors ${
+            className={`md:hidden min-w-[44px] min-h-[44px] flex items-center justify-center rounded-xl transition-all active:scale-90 ${
               isLightSection ? 'text-black hover:bg-black/5' : 'text-white hover:bg-white/10'
             }`}
             aria-label="Toggle Navigation Menu"
@@ -125,7 +141,7 @@ export default function Navbar() {
         </div>
       </header>
 
-      {/* Mobile Drawer Menu */}
+      {/* Mobile Drawer Menu with Safe Area Insets */}
       <AnimatePresence>
         {mobileMenuOpen && (
           <motion.div
@@ -133,19 +149,23 @@ export default function Navbar() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.25 }}
-            className="fixed inset-0 z-40 bg-black/95 backdrop-blur-xl md:hidden flex flex-col justify-between p-8 pt-28"
+            style={{
+              paddingTop: 'calc(env(safe-area-inset-top, 0px) + 5.5rem)',
+              paddingBottom: 'calc(env(safe-area-inset-bottom, 0px) + 2rem)'
+            }}
+            className="fixed inset-0 z-40 bg-black/95 backdrop-blur-xl md:hidden flex flex-col justify-between px-6 sm:px-8 overflow-y-auto"
           >
             <div className="space-y-6">
               <p className="font-mono-code text-[11px] text-[#f20d20] tracking-widest uppercase">
                 // NAVIGATION MENU
               </p>
-              <div className="flex flex-col space-y-4">
+              <div className="flex flex-col space-y-2">
                 {portfolioConfig.navigation.map((item) => (
                   <a
                     key={item.label}
                     href={item.href}
                     onClick={() => setMobileMenuOpen(false)}
-                    className="font-anton text-3xl tracking-wider text-white hover:text-[#f20d20] transition-colors"
+                    className="font-anton text-3xl sm:text-4xl tracking-wider text-white hover:text-[#f20d20] active:text-[#f20d20] py-2 transition-colors min-h-[48px] flex items-center"
                   >
                     {item.label}
                   </a>
@@ -153,11 +173,11 @@ export default function Navbar() {
               </div>
             </div>
 
-            <div className="pt-8 border-t border-white/10 space-y-4">
+            <div className="pt-6 border-t border-white/10 space-y-4">
               <a
                 href={portfolioConfig.personal.resumeUrl}
                 download="Aman_Vishwakarma_CV.pdf"
-                className="w-full flex items-center justify-center gap-2 py-3 rounded-full bg-white text-black font-bold text-xs tracking-wider uppercase hover:bg-[#f20d20] hover:text-white transition-colors"
+                className="w-full min-h-[48px] flex items-center justify-center gap-2 py-3.5 rounded-full bg-white text-black font-bold text-xs tracking-wider uppercase hover:bg-[#f20d20] hover:text-white active:scale-95 transition-all"
               >
                 <Download className="w-4 h-4" />
                 <span>DOWNLOAD CV (PDF)</span>

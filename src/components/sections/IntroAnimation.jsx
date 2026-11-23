@@ -35,8 +35,9 @@ export default function IntroAnimation({ onComplete }) {
           initial={{ opacity: 1 }}
           exit={{ opacity: 0, scale: 1.05 }}
           transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-          className="fixed inset-0 z-[100] flex items-center justify-center bg-[#000000] text-white select-none overflow-hidden cursor-pointer"
+          className="fixed inset-0 z-[100] flex items-center justify-center bg-[#000000] text-white select-none overflow-hidden cursor-pointer touch-manipulation"
           onClick={handleSkip}
+          onTouchStart={handleSkip}
         >
           {/* Subtle Ambient Vignette */}
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.06)_0%,transparent_70%)] pointer-events-none" />
@@ -115,14 +116,15 @@ export default function IntroAnimation({ onComplete }) {
             </motion.div>
           </div>
 
-          {/* Click to skip helper hint */}
+          {/* Tap or Click to skip helper hint */}
           <motion.div 
             initial={{ opacity: 0 }}
-            animate={{ opacity: 0.5 }}
+            animate={{ opacity: 0.6 }}
             transition={{ delay: 0.8, duration: 0.5 }}
-            className="absolute bottom-10 font-mono-code text-[11px] tracking-widest text-gray-400 uppercase"
+            style={{ bottom: 'max(2rem, env(safe-area-inset-bottom, 0px))' }}
+            className="absolute font-mono-code text-[11px] tracking-widest text-gray-400 uppercase text-center px-4"
           >
-            [ CLICK ANYWHERE TO ENTER ]
+            [ TAP OR CLICK TO ENTER ]
           </motion.div>
         </motion.div>
       )}

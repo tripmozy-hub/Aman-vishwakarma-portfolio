@@ -24,12 +24,12 @@ export default function About() {
         <div className="relative flex flex-col items-center justify-center mb-10 sm:mb-16">
           
           {/* Split Background Headline */}
-          <div className="w-full flex justify-between items-center select-none pointer-events-none">
-            <h2 className="font-anton text-7xl sm:text-9xl md:text-[140px] lg:text-[180px] font-black tracking-tight text-white/90 uppercase">
+          <div className="w-full flex justify-between items-center select-none pointer-events-none px-2 sm:px-0">
+            <h2 className="font-anton text-5xl xs:text-6xl sm:text-8xl md:text-[140px] lg:text-[180px] font-black tracking-tight text-white/90 uppercase">
               ABOUT
             </h2>
 
-            <h2 className="font-anton text-7xl sm:text-9xl md:text-[140px] lg:text-[180px] font-black tracking-tight text-white/90 uppercase">
+            <h2 className="font-anton text-5xl xs:text-6xl sm:text-8xl md:text-[140px] lg:text-[180px] font-black tracking-tight text-white/90 uppercase">
               ME
             </h2>
           </div>

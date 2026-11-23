@@ -89,7 +89,7 @@ export default function Contact() {
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-          className="font-anton text-7xl sm:text-9xl md:text-[150px] lg:text-[180px] font-black tracking-tight text-white uppercase leading-none select-none"
+          className="font-anton text-5xl sm:text-8xl md:text-[150px] lg:text-[180px] font-black tracking-tight text-white uppercase leading-none select-none"
           style={{
             textShadow: '0 0 50px rgba(255,255,255,0.7), 0 0 100px rgba(255,255,255,0.3)'
           }}
@@ -182,7 +182,10 @@ export default function Contact() {
               animate={{ scale: 1, y: 0 }}
               exit={{ scale: 0.95, y: 20 }}
               onClick={(e) => e.stopPropagation()}
-              className="bg-[#0f1016] border border-white/15 rounded-3xl max-w-lg w-full p-8 shadow-2xl relative space-y-6"
+              className="bg-[#0f1016] border border-white/15 rounded-3xl max-w-lg w-full max-h-[92vh] overflow-y-auto p-6 sm:p-8 shadow-2xl relative space-y-6"
+              style={{
+                paddingBottom: 'max(1.5rem, env(safe-area-inset-bottom, 0px))'
+              }}
             >
               <div className="flex justify-between items-start">
                 <div>
