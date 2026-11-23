@@ -48,7 +48,7 @@ export default function App() {
   return (
     <div className="relative min-h-screen bg-[#FFFFFF] text-[#0A0A0C] selection:bg-[#F20D20] selection:text-white font-body overflow-x-hidden">
       
-      {/* SECTION 1: Intro Loading Animation (Frames 1-2: Glowing "ECHO." with soundwave ring) */}
+      {/* SECTION 1: Intro Loading Animation (Glowing "AMAN.V" with soundwave ring) */}
       <IntroAnimation onComplete={() => setIntroFinished(true)} />
 
       {/* Desktop Precision Cursor */}
@@ -57,7 +57,7 @@ export default function App() {
       {/* Luxury Scroll Progress Bar & Floating Quick Section Controller */}
       <ScrollExperience />
 
-      {/* Persistent Minimal Header (Frame 3: "ECHO •" + Links + CV Download) */}
+      {/* Persistent Minimal Header ("AMAN.V •" + Links + CV Download) */}
       <Navbar />
 
       {/* MAIN SECTIONS IN EXACT ORDER OF REFERENCE VIDEO */}

@@ -97,7 +97,7 @@ export default function IntroAnimation({ onComplete }) {
               />
             </motion.svg>
 
-            {/* Glowing Text "ECHO." (Frames 1 & 2) */}
+            {/* Glowing Text "AMAN.V" (Frames 1 & 2) */}
             <motion.div
               initial={{ opacity: 0, scale: 0.9, letterSpacing: "0.2em" }}
               animate={{ opacity: 1, scale: 1, letterSpacing: "0.25em" }}
@@ -105,20 +105,12 @@ export default function IntroAnimation({ onComplete }) {
               className="relative z-10 flex items-baseline justify-center"
             >
               <span 
-                className="font-anton text-5xl sm:text-7xl md:text-8xl font-black text-white tracking-[0.25em]"
+                className="font-anton text-4xl sm:text-6xl md:text-8xl font-black text-white tracking-[0.2em]"
                 style={{
                   textShadow: "0 0 30px rgba(255,255,255,0.85), 0 0 60px rgba(255,255,255,0.4)"
                 }}
               >
-                ECHO
-              </span>
-              <span 
-                className="text-4xl sm:text-6xl text-white ml-1 inline-block animate-pulse"
-                style={{
-                  textShadow: "0 0 25px rgba(255,255,255,0.9)"
-                }}
-              >
-                .
+                AMAN.V
               </span>
             </motion.div>
           </div>

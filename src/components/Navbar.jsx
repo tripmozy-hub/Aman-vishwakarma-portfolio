@@ -49,7 +49,7 @@ export default function Navbar() {
       >
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 flex items-center justify-between">
           
-          {/* Logo matching Frame 3: "ECHO •" */}
+          {/* Logo: "AMAN.V •" */}
           <a
             href="#home"
             className="group flex items-center gap-2 select-none"
@@ -59,7 +59,7 @@ export default function Navbar() {
                 isLightSection ? 'text-black' : 'text-white'
               }`}
             >
-              ECHO
+              AMAN.V
             </span>
             <span className="w-1.5 h-1.5 rounded-full bg-[#f20d20] group-hover:scale-150 transition-transform" />
           </a>
