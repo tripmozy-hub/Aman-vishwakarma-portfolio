@@ -75,7 +75,7 @@ export default function About() {
 
               {/* Exact Professional Summary from CV */}
               <div className="p-5 rounded-xl bg-white/[0.03] border border-white/5 space-y-2">
-                <p className="font-mono-code text-xs font-bold text-[#00f0ff] uppercase tracking-wider">
+                <p className="font-mono-code text-xs font-bold text-[#f20d20] uppercase tracking-wider">
                   // CANDIDATE PROFILE &amp; OBJECTIVE
                 </p>
                 <p className="text-xs sm:text-sm text-gray-200 leading-relaxed font-body">

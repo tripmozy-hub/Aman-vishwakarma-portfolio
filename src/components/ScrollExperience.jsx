@@ -60,10 +60,10 @@ export default function ScrollExperience() {
 
   return (
     <>
-      {/* 1. TOP SCROLL PROGRESS BAR (Glowing red/cyan gradient) */}
+      {/* 1. TOP SCROLL PROGRESS BAR (Glowing red gradient) */}
       <div className="fixed top-0 left-0 right-0 h-[3px] z-[60] bg-transparent pointer-events-none">
         <motion.div
-          className="h-full bg-gradient-to-r from-[#f20d20] via-white to-[#00f0ff] shadow-[0_0_12px_rgba(242,13,32,0.8)]"
+          className="h-full bg-gradient-to-r from-[#f20d20] via-[#ff4d5a] to-[#f20d20] shadow-[0_0_12px_rgba(242,13,32,0.8)]"
           style={{ width: `${scrollProgress}%` }}
         />
       </div>

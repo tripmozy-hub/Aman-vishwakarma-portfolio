@@ -135,7 +135,7 @@ export default function Contact() {
             onClick={handleCopyPhone}
             className="flex items-center gap-2 px-4 py-2 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-gray-300 transition-colors"
           >
-            <Phone className="w-3.5 h-3.5 text-[#00f0ff]" />
+            <Phone className="w-3.5 h-3.5 text-[#f20d20]" />
             <span>{personal.phone}</span>
             {copiedPhone ? <Check className="w-3.5 h-3.5 text-emerald-400" /> : <Copy className="w-3.5 h-3.5 text-gray-500" />}
           </button>

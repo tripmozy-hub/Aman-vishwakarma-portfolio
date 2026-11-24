@@ -52,7 +52,7 @@ function ProjectMockup({ project }) {
             <div className="bg-white/[0.03] border border-white/5 p-3 rounded-lg">
               <p className="text-[10px] text-gray-400 font-mono-code">RESUMES</p>
               <p className="text-xl font-bold font-anton text-white mt-1">98%</p>
-              <p className="text-[9px] text-cyan-400 mt-1">Parsed &amp; Filtered</p>
+              <p className="text-[9px] text-[#f20d20] mt-1">Parsed &amp; Filtered</p>
             </div>
           </div>
 
@@ -155,17 +155,17 @@ function ProjectMockup({ project }) {
           <span className="w-2.5 h-2.5 rounded-full bg-emerald-500/80" />
         </div>
         <div className="px-3 py-0.5 rounded bg-black/50 text-[10px] font-mono-code text-gray-400 border border-white/5 flex items-center gap-1">
-          <Plane className="w-2.5 h-2.5 text-[#00F0FF]" />
+          <Plane className="w-2.5 h-2.5 text-[#F20D20]" />
           tripmozy.com/enterprise
         </div>
-        <div className="text-[10px] font-mono-code text-cyan-400">● PRODUCTION WEB</div>
+        <div className="text-[10px] font-mono-code text-[#F20D20]">● PRODUCTION WEB</div>
       </div>
 
       <div className="flex-1 p-5 flex flex-col justify-between bg-gradient-to-br from-[#0c0c10] via-[#09090b] to-[#040405] text-left">
         <div className="flex justify-between items-center pb-3 border-b border-white/5">
           <div className="flex items-center gap-2">
             <span className="text-white font-black font-syne text-sm">TRIPMOZY TECH</span>
-            <span className="text-[10px] px-2 py-0.5 bg-cyan-500/20 text-cyan-300 rounded font-mono-code">TRAVEL AI PLATFORM</span>
+            <span className="text-[10px] px-2 py-0.5 bg-[#F20D20]/20 text-[#F20D20] rounded font-mono-code">TRAVEL AI PLATFORM</span>
           </div>
           <div className="text-[10px] font-mono-code text-gray-400">ENGINEERED BY AMAN</div>
         </div>
@@ -178,8 +178,8 @@ function ProjectMockup({ project }) {
           </div>
           <div className="bg-white/[0.03] border border-white/5 p-3 rounded-lg">
             <p className="text-[10px] text-gray-400 font-mono-code">AI WORKFLOWS</p>
-            <p className="text-xl font-bold font-anton text-[#00F0FF] mt-1">AUTOMATED</p>
-            <p className="text-[9px] text-cyan-400 mt-1">Itinerary Engine</p>
+            <p className="text-xl font-bold font-anton text-[#F20D20] mt-1">AUTOMATED</p>
+            <p className="text-[9px] text-[#F20D20] mt-1">Itinerary Engine</p>
           </div>
           <div className="bg-white/[0.03] border border-white/5 p-3 rounded-lg">
             <p className="text-[10px] text-gray-400 font-mono-code">DESTINATIONS</p>
@@ -205,7 +205,7 @@ export default function Projects() {
     >
       {/* Background Section Ambient Glow */}
       <div className="absolute top-1/4 right-0 w-[500px] h-[500px] bg-[#F20D20]/10 rounded-full blur-[160px] pointer-events-none" />
-      <div className="absolute bottom-1/4 left-0 w-[450px] h-[450px] bg-[#00F0FF]/5 rounded-full blur-[160px] pointer-events-none" />
+      <div className="absolute bottom-1/4 left-0 w-[450px] h-[450px] bg-[#F20D20]/5 rounded-full blur-[160px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto">
         {/* SECTION HEADER */}
@@ -253,7 +253,7 @@ export default function Projects() {
                   <div className={`lg:col-span-7 ${isEven ? 'lg:order-2' : 'lg:order-1'}`}>
                     <div className="relative group-hover:scale-[1.01] transition-transform duration-500">
                       {/* Big Glowing Underlayer on Hover */}
-                      <div className="absolute -inset-1 bg-gradient-to-r from-[#F20D20]/20 to-[#00F0FF]/15 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                      <div className="absolute -inset-1 bg-gradient-to-r from-[#F20D20]/25 to-[#F20D20]/15 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                       
                       {/* Actual Project Mockup UI */}
                       <ProjectMockup project={project} />

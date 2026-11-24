@@ -126,7 +126,7 @@ export default function CreativeTechnologist() {
         {/* TECHNICAL SKILLS MATRIX (From CV) */}
         <div className="mb-12 p-8 sm:p-10 rounded-2xl bg-[#0d0e14]/70 border border-white/10 space-y-6">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-white/10">
-            <div className="flex items-center gap-2 text-[#00f0ff]">
+            <div className="flex items-center gap-2 text-[#f20d20]">
               <Cpu className="w-5 h-5 text-[#f20d20]" />
               <span className="font-mono-code text-xs font-bold tracking-widest uppercase text-white">
                 TECHNICAL SKILLS MATRIX (EXACT CV CREDENTIALS)
@@ -196,9 +196,9 @@ export default function CreativeTechnologist() {
             ))}
 
             {activeSkillCategory === 'geospatial' && technicalSkills.geospatial.map((s) => (
-              <div key={s.name} className="p-3 rounded-xl bg-black/40 border border-white/5 hover:border-[#00f0ff]/50 transition-colors">
+              <div key={s.name} className="p-3 rounded-xl bg-black/40 border border-white/5 hover:border-[#f20d20]/50 transition-colors">
                 <p className="text-xs font-bold text-white">{s.name}</p>
-                <p className="text-[10px] font-mono-code text-[#00f0ff] mt-0.5">{s.level}</p>
+                <p className="text-[10px] font-mono-code text-[#f20d20] mt-0.5">{s.level}</p>
               </div>
             ))}
 
@@ -233,7 +233,7 @@ export default function CreativeTechnologist() {
 
           {/* Also Familiar With Banner */}
           <div className="pt-4 border-t border-white/5 flex flex-wrap items-center gap-2 text-xs font-mono-code">
-            <span className="text-[#00f0ff] font-bold uppercase">ALSO FAMILIAR WITH:</span>
+            <span className="text-[#f20d20] font-bold uppercase">ALSO FAMILIAR WITH:</span>
             {(technicalSkills.alsoFamiliarWith || []).map((item) => (
               <span key={item} className="px-2.5 py-1 rounded bg-white/5 text-gray-300 border border-white/5">
                 {item}
@@ -266,7 +266,7 @@ export default function CreativeTechnologist() {
 
           {/* Certifications Card */}
           <div className="p-6 rounded-2xl bg-[#0d0e14]/60 border border-white/10 space-y-3">
-            <div className="flex items-center gap-2 text-[#00f0ff]">
+            <div className="flex items-center gap-2 text-[#f20d20]">
               <Award className="w-4 h-4" />
               <span className="font-mono-code text-xs font-bold tracking-widest uppercase">
                 VERIFIED INDUSTRY CREDENTIALS

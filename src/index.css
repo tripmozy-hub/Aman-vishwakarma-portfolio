@@ -6,9 +6,8 @@
     --accent-red: #F20D20;
     --accent-red-hover: #E92735;
     --text-muted: #8E8E93;
-    --cyan-glow: rgba(0, 240, 255, 0.4);
-    --blue-glow: rgba(0, 102, 255, 0.5);
     --red-glow: rgba(242, 13, 32, 0.5);
+    --red-glow-subtle: rgba(242, 13, 32, 0.25);
     --sat: env(safe-area-inset-top, 0px);
     --sab: env(safe-area-inset-bottom, 0px);
     --sal: env(safe-area-inset-left, 0px);
@@ -97,8 +96,8 @@
   box-shadow: 0 0 80px -15px rgba(242, 13, 32, 0.6);
 }
 
-.glow-cyan {
-  box-shadow: 0 0 50px -10px rgba(0, 240, 255, 0.4);
+.glow-red-subtle {
+  box-shadow: 0 0 50px -10px rgba(242, 13, 32, 0.35);
 }
 
 .text-glow-red {

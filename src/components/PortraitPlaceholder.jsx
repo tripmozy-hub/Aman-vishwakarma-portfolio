@@ -27,11 +27,11 @@ export default function PortraitPlaceholder({ mouseX = 0, mouseY = 0, customImag
         }}
       />
       
-      {/* Cyan/Blue ambient glow (Right) */}
+      {/* Ambient lighting halo */}
       <div 
         className="absolute -right-12 top-1/3 w-72 h-80 rounded-full blur-[90px] opacity-70 pointer-events-none transition-all duration-300"
         style={{
-          background: 'radial-gradient(circle, rgba(0,240,255,0.75) 0%, rgba(0,102,255,0.4) 40%, rgba(0,0,0,0) 70%)',
+          background: 'radial-gradient(circle, rgba(242,13,32,0.75) 0%, rgba(200,10,25,0.4) 40%, rgba(0,0,0,0) 70%)',
           transform: `translate(${mouseX * -20}px, ${mouseY * -20}px)`
         }}
       />
@@ -59,11 +59,11 @@ export default function PortraitPlaceholder({ mouseX = 0, mouseY = 0, customImag
             }}
           />
 
-          {/* Cyan/Blue Lighting from Right Edge */}
+          {/* Soft Red Lighting from Right Edge */}
           <div 
-            className="absolute inset-y-0 right-0 w-1/3 pointer-events-none mix-blend-screen opacity-65"
+            className="absolute inset-y-0 right-0 w-1/3 pointer-events-none mix-blend-screen opacity-50"
             style={{
-              background: 'linear-gradient(270deg, rgba(0,240,255,0.65) 0%, rgba(0,102,255,0.2) 60%, transparent 100%)'
+              background: 'linear-gradient(270deg, rgba(242,13,32,0.5) 0%, rgba(242,13,32,0.15) 60%, transparent 100%)'
             }}
           />
 
@@ -78,7 +78,7 @@ export default function PortraitPlaceholder({ mouseX = 0, mouseY = 0, customImag
         </div>
 
         <div className="absolute top-4 right-4 z-20 flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-black/75 border border-white/10 backdrop-blur-md">
-          <Code2 className="w-3.5 h-3.5 text-[#00F0FF]" />
+          <Code2 className="w-3.5 h-3.5 text-[#F20D20]" />
           <span className="font-mono-code text-[10px] text-gray-300 font-semibold">2026 ED.</span>
         </div>
 
@@ -99,9 +99,9 @@ export default function PortraitPlaceholder({ mouseX = 0, mouseY = 0, customImag
 
         {/* Framing Corner Accents */}
         <div className="absolute top-2.5 left-2.5 w-3 h-3 border-t-2 border-l-2 border-[#F20D20] pointer-events-none z-20" />
-        <div className="absolute top-2.5 right-2.5 w-3 h-3 border-t-2 border-r-2 border-[#00F0FF] pointer-events-none z-20" />
+        <div className="absolute top-2.5 right-2.5 w-3 h-3 border-t-2 border-r-2 border-[#F20D20] pointer-events-none z-20" />
         <div className="absolute bottom-2.5 left-2.5 w-3 h-3 border-b-2 border-l-2 border-[#F20D20] pointer-events-none z-20" />
-        <div className="absolute bottom-2.5 right-2.5 w-3 h-3 border-b-2 border-r-2 border-[#00F0FF] pointer-events-none z-20" />
+        <div className="absolute bottom-2.5 right-2.5 w-3 h-3 border-b-2 border-r-2 border-[#F20D20] pointer-events-none z-20" />
       </div>
     </motion.div>
   );
