@@ -2,12 +2,14 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronLeft, ChevronRight, ExternalLink, ArrowUpRight, X, Sparkles } from 'lucide-react';
 import { portfolioConfig } from '../../data/portfolioConfig';
+import ParallaxBackdrop from '../ParallaxBackdrop';
 
 export default function LandingPages() {
   const [currentIndex, setCurrentIndex] = useState(1); // Start with ECHO centered (Frame 15)
   const [selectedProject, setSelectedProject] = useState(null);
   const [touchStart, setTouchStart] = useState(null);
   const [touchEnd, setTouchEnd] = useState(null);
+  const [bgMode, setBgMode] = useState('car'); // 'car' or 'dna' floating blurred parallax background
 
   const projects = portfolioConfig.landingPages;
 
@@ -47,6 +49,9 @@ export default function LandingPages() {
       id="landing-pages"
       className="relative min-h-screen w-full bg-[#FFFFFF] text-[#0A0A0C] py-24 sm:py-32 px-6 sm:px-8 lg:px-12 overflow-hidden flex flex-col justify-between select-none"
     >
+      {/* Dynamic Parallax Depth Layer (Blurred Car or DNA moving on scroll) */}
+      <ParallaxBackdrop mode={bgMode} isLight={true} />
+
       <div className="relative z-10 max-w-7xl mx-auto w-full">
 
         {/* Section Header */}
@@ -64,11 +69,21 @@ export default function LandingPages() {
             </h2>
           </div>
 
-          {/* Navigation Arrows */}
-          <div className="flex items-center gap-3">
+          {/* Navigation & Parallax Toggle Controls */}
+          <div className="flex flex-wrap items-center gap-3">
+            {/* Toggle between blurred Hypercar and blurred DNA Helix */}
+            <button
+              onClick={() => setBgMode(bgMode === 'car' ? 'dna' : 'car')}
+              className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-black/5 hover:bg-black/10 active:scale-95 border border-black/10 text-[11px] font-mono-code text-gray-700 transition-all duration-200 cursor-pointer shadow-sm"
+              title="Toggle floating background object"
+            >
+              <span className="w-2 h-2 rounded-full bg-[#f20d20] animate-pulse" />
+              <span>DEPTH: {bgMode === 'car' ? '🏎️ CAR' : '🧬 DNA'}</span>
+            </button>
+
             <button
               onClick={handlePrev}
-              className="p-3 rounded-full border border-black/20 hover:bg-black hover:text-white transition-colors"
+              className="p-3 rounded-full border border-black/20 hover:bg-black hover:text-white transition-colors cursor-pointer"
               aria-label="Previous Project"
             >
               <ChevronLeft className="w-5 h-5" />
@@ -78,7 +93,7 @@ export default function LandingPages() {
             </span>
             <button
               onClick={handleNext}
-              className="p-3 rounded-full border border-black/20 hover:bg-black hover:text-white transition-colors"
+              className="p-3 rounded-full border border-black/20 hover:bg-black hover:text-white transition-colors cursor-pointer"
               aria-label="Next Project"
             >
               <ChevronRight className="w-5 h-5" />
