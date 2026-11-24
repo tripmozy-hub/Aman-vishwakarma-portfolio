@@ -1,5 +1,6 @@
 import React, { useRef } from 'react';
 import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
+import ThreeDCarCanvas from './ThreeDCarCanvas';
 
 export default function ParallaxBackdrop({ mode = 'car', isLight = true }) {
   const containerRef = useRef(null);
@@ -9,16 +10,13 @@ export default function ParallaxBackdrop({ mode = 'car', isLight = true }) {
     offset: ["start end", "end start"]
   });
 
-  // Responsive spring interpolation for silky-smooth rotation
+  // Responsive spring interpolation
   const smoothProgress = useSpring(scrollYProgress, { 
     stiffness: 75, 
     damping: 24, 
     restDelta: 0.001 
   });
 
-  // Stationary in background (no Y or X translation), purely rotating with scroll
-  // At progress 0.5 (center of viewport), rotation is 0deg (level, upright)
-  const rotateCar = useTransform(smoothProgress, [0, 0.5, 1], [-90, 0, 90]);
   const rotateDna = useTransform(smoothProgress, [0, 0.5, 1], [-180, 0, 180]);
 
   return (
@@ -27,27 +25,12 @@ export default function ParallaxBackdrop({ mode = 'car', isLight = true }) {
       className="absolute inset-0 pointer-events-none overflow-hidden z-0 select-none flex items-center justify-center"
       aria-hidden="true"
     >
-      {/* 1. FUTURISTIC HYPERCAR LAYER - STILL IN BACKGROUND, ROTATING ON SCROLL */}
+      {/* 1. TRUE 3D SUPERCAR CANVAS - TURNS RIGHT-TO-LEFT ON SCROLL DOWN, LEFT-TO-RIGHT ON SCROLL UP */}
       {mode === 'car' && (
-        <motion.div
-          style={{
-            rotate: rotateCar,
-          }}
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[720px] sm:w-[1050px] md:w-[1300px] max-w-none opacity-35 sm:opacity-45 filter blur-[3px] sm:blur-[4px] transition-opacity duration-500 gpu-accel pointer-events-none origin-center"
-        >
-          <img
-            src="/assets/parallax-car.png"
-            alt=""
-            className={`w-full h-auto object-contain ${
-              isLight 
-                ? 'drop-shadow-[0_20px_50px_rgba(242,13,32,0.45)] filter contrast-125' 
-                : 'drop-shadow-[0_0_60px_rgba(242,13,32,0.7)] mix-blend-screen'
-            }`}
-          />
-        </motion.div>
+        <ThreeDCarCanvas containerRef={containerRef} isLight={isLight} />
       )}
 
-      {/* 2. BIOTECH DNA HELIX LAYER - STILL IN BACKGROUND, ROTATING ON SCROLL */}
+      {/* 2. BIOTECH DNA HELIX LAYER */}
       {mode === 'dna' && (
         <motion.div
           style={{
