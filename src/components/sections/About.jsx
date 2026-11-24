@@ -2,7 +2,6 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowUpRight, Sparkles, Terminal, Code2, Database } from 'lucide-react';
 import { portfolioConfig } from '../../data/portfolioConfig';
-import ParallaxBackdrop from '../ParallaxBackdrop';
 
 export default function About() {
   const { personal } = portfolioConfig;
@@ -17,9 +16,6 @@ export default function About() {
         className="absolute inset-0 bg-cover bg-center opacity-35 mix-blend-screen pointer-events-none"
         style={{ backgroundImage: `url('/assets/about-backdrop.jpg')` }}
       />
-      
-      {/* Floating Blurred DNA Helix moving on scroll */}
-      <ParallaxBackdrop mode="dna" isLight={false} />
 
       <div className="absolute inset-0 bg-gradient-to-b from-[#08080A] via-transparent to-[#08080A] pointer-events-none" />
 

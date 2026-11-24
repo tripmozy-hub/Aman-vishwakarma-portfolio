@@ -9,36 +9,31 @@ export default function ParallaxBackdrop({ mode = 'car', isLight = true }) {
     offset: ["start end", "end start"]
   });
 
+  // Responsive spring interpolation for silky-smooth rotation
   const smoothProgress = useSpring(scrollYProgress, { 
-    stiffness: 85, 
-    damping: 25, 
+    stiffness: 75, 
+    damping: 24, 
     restDelta: 0.001 
   });
 
-  // Parallax motion physics: Y-translation, subtle X-drift, and angle tilt
-  const yCar = useTransform(smoothProgress, [0, 1], [-140, 160]);
-  const xCar = useTransform(smoothProgress, [0, 1], [-80, 80]);
-  const rotateCar = useTransform(smoothProgress, [0, 1], [-4, 6]);
-
-  const yDna = useTransform(smoothProgress, [0, 1], [-160, 180]);
-  const xDna = useTransform(smoothProgress, [0, 1], [60, -60]);
-  const rotateDna = useTransform(smoothProgress, [0, 1], [15, -25]);
+  // Stationary in background (no Y or X translation), purely rotating with scroll
+  // At progress 0.5 (center of viewport), rotation is 0deg (level, upright)
+  const rotateCar = useTransform(smoothProgress, [0, 0.5, 1], [-90, 0, 90]);
+  const rotateDna = useTransform(smoothProgress, [0, 0.5, 1], [-180, 0, 180]);
 
   return (
     <div 
       ref={containerRef}
-      className="absolute inset-0 pointer-events-none overflow-hidden z-0 select-none"
+      className="absolute inset-0 pointer-events-none overflow-hidden z-0 select-none flex items-center justify-center"
       aria-hidden="true"
     >
-      {/* 1. FUTURISTIC HYPERCAR PARALLAX LAYER */}
+      {/* 1. FUTURISTIC HYPERCAR LAYER - STILL IN BACKGROUND, ROTATING ON SCROLL */}
       {mode === 'car' && (
         <motion.div
           style={{
-            y: yCar,
-            x: xCar,
             rotate: rotateCar,
           }}
-          className="absolute top-[42%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[720px] sm:w-[1050px] md:w-[1300px] max-w-none opacity-35 sm:opacity-45 filter blur-[3px] sm:blur-[4px] transition-opacity duration-500 gpu-accel pointer-events-none"
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[720px] sm:w-[1050px] md:w-[1300px] max-w-none opacity-35 sm:opacity-45 filter blur-[3px] sm:blur-[4px] transition-opacity duration-500 gpu-accel pointer-events-none origin-center"
         >
           <img
             src="/assets/parallax-car.png"
@@ -52,15 +47,13 @@ export default function ParallaxBackdrop({ mode = 'car', isLight = true }) {
         </motion.div>
       )}
 
-      {/* 2. BIOTECH DNA HELIX PARALLAX LAYER */}
+      {/* 2. BIOTECH DNA HELIX LAYER - STILL IN BACKGROUND, ROTATING ON SCROLL */}
       {mode === 'dna' && (
         <motion.div
           style={{
-            y: yDna,
-            x: xDna,
             rotate: rotateDna,
           }}
-          className="absolute top-[45%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[680px] sm:w-[980px] md:w-[1250px] max-w-none opacity-30 sm:opacity-45 filter blur-[2.5px] sm:blur-[3.5px] transition-opacity duration-500 gpu-accel pointer-events-none"
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[680px] sm:w-[980px] md:w-[1250px] max-w-none opacity-30 sm:opacity-45 filter blur-[2.5px] sm:blur-[3.5px] transition-opacity duration-500 gpu-accel pointer-events-none origin-center"
         >
           <img
             src="/assets/parallax-dna.png"

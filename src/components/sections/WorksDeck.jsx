@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronUp, ChevronDown, ArrowUpRight, RotateCcw, Sparkles } from 'lucide-react';
 import { portfolioConfig } from '../../data/portfolioConfig';
+import ParallaxBackdrop from '../ParallaxBackdrop';
 
 export default function WorksDeck() {
   // Modes: 'wheel' (Frames 19 & 20: Hexagonal circular ring) vs 'deck' (Frames 21-26: 3D vertical cycling stack)
@@ -47,6 +48,9 @@ export default function WorksDeck() {
       id="works-deck"
       className="relative min-h-screen w-full bg-[#FFFFFF] text-[#0A0A0C] py-24 sm:py-32 px-6 sm:px-8 lg:px-12 overflow-hidden flex flex-col justify-between select-none"
     >
+      {/* Dynamic Parallax Depth Layer (Still in background, rotating on scroll) */}
+      <ParallaxBackdrop mode="car" isLight={true} />
+
       <div className="relative z-10 max-w-7xl mx-auto w-full flex-1 flex flex-col justify-between">
 
         {/* Top Controls & View Toggle (Hexagonal Ring vs 3D Deck) */}
