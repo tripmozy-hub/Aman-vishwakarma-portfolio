@@ -321,22 +321,22 @@ export const portfolioConfig = {
       id: "ayudar",
       tabLabel: "04 // AYUDAR NGO",
       badge: "LIVE NGO PLATFORM // 04",
-      title: "Ayudar Animal Welfare Foundation – NGO Website",
-      category: "NGO Web Platform & Online Giving",
-      stack: "Next.js, React, Razorpay, Deployed on Vercel",
+      title: "Ayudar Animal Welfare Foundation – NGO Web Platform",
+      category: "Animal Welfare & Online Giving Platform",
+      stack: "Next.js, React, Razorpay Gateway, Tailwind CSS, Vercel",
       technologies: ["Next.js", "React.js", "Razorpay Payment Gateway", "Tailwind CSS", "SEO Metadata", "Vercel"],
       image: "/assets/landing-ayudar.jpg",
-      liveUrl: "https://animal-ngo-website.vercel.app",
+      liveUrl: "https://animal-ngo-website.vercel.app/",
       githubUrl: "https://github.com/amanvishwakarma8016/ayudar-ngo",
       bullets: [
-        "Built a responsive multi-page website for an animal-rescue NGO covering rescue reporting, pet adoption, cow care (Gaushala), shelter, volunteer sign-up and donations.",
-        "Developed adoption listings with individual animal profile pages, status tags and 'Adopt Me' flows.",
-        "Added an emergency report-an-animal page, a donation page with preset amounts and Razorpay, and a success-stories section.",
-        "Optimised for mobile and search with SEO metadata; live at animal-ngo-website.vercel.app."
+        "Built a responsive multi-page web platform for Ayudar Animal Welfare Foundation covering rescue reporting, pet adoption, cow care (Gaushala), shelter, volunteer sign-up and online donations.",
+        "Developed pet adoption listings with individual animal profile pages, health status tags, and intuitive 'Adopt Me' request flows.",
+        "Engineered an emergency 24/7 report-an-animal portal across Raniganj, Asansol & Durgapur, plus a donation system with preset amounts and secure Razorpay integration.",
+        "Optimised for mobile-first viewports and search engines with structured SEO metadata, deployed live on Vercel."
       ],
       stats: [
-        { label: "FRAMEWORK", value: "NEXT.JS + REACT" },
-        { label: "PAYMENT GATEWAY", value: "RAZORPAY INTEGRATED" },
+        { label: "RESCUED", value: "1,250+ ANIMALS" },
+        { label: "PAYMENT ENGINE", value: "RAZORPAY INTEGRATED" },
         { label: "LIVE DOMAIN", value: "animal-ngo-website.vercel.app" }
       ]
     }
@@ -367,12 +367,12 @@ export const portfolioConfig = {
     {
       id: "ayudar-platform",
       title: "AYUDAR NGO FOUNDATION",
-      category: "Animal Welfare NGO Platform & Razorpay Giving",
+      category: "Animal Welfare Platform & Razorpay Giving",
       year: "2026",
       image: "/assets/landing-ayudar.jpg",
-      liveUrl: "https://animal-ngo-website.vercel.app",
-      tags: ["Next.js", "Razorpay", "Live Vercel", "Adoption Flows"],
-      description: "Live animal-rescue platform covering rescue reporting, pet adoption profiles, volunteer signups, and automated Razorpay donation receipts."
+      liveUrl: "https://animal-ngo-website.vercel.app/",
+      tags: ["Next.js", "Razorpay", "Live Vercel", "1,250+ Rescued"],
+      description: "Live animal-rescue platform covering 24/7 rescue reporting across Raniganj & Asansol, pet adoption profiles, volunteer signups, and automated Razorpay donation receipts."
     },
     {
       id: "hillqueen-resort",
@@ -427,14 +427,14 @@ export const portfolioConfig = {
     {
       id: "ayudar-ngo",
       title: "AYUDAR FOUNDATION",
-      headline: "Compassionate animal welfare & secure direct giving.",
-      role: "Lead Frontend & Next.js Developer",
-      client: "Ayudar Animal Welfare NGO",
-      stack: "Next.js, React, Razorpay Gateway, Vercel",
+      headline: "Every animal deserves a second chance.",
+      role: "Lead Full-Stack Web Developer",
+      client: "Ayudar Animal Welfare NGO — Raniganj & Asansol",
+      stack: "Next.js, React, Razorpay Gateway, Tailwind CSS, Vercel",
       year: "2026",
       image: "/assets/landing-ayudar.jpg",
-      liveUrl: "https://animal-ngo-website.vercel.app",
-      description: "Multi-page animal rescue platform with rescue reporting, pet adoption flow, Gaushala support, and Razorpay donation system."
+      liveUrl: "https://animal-ngo-website.vercel.app/",
+      description: "Animal rescue platform with 24/7 emergency rescue reporting across Raniganj, Asansol & Durgapur, pet adoption profiles, Gaushala support, and Razorpay donation system."
     },
     {
       id: "aether-ai",
