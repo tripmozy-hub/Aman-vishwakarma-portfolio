@@ -437,40 +437,16 @@ export const portfolioConfig = {
       description: "Animal rescue platform with 24/7 emergency rescue reporting across Raniganj, Asansol & Durgapur, pet adoption profiles, Gaushala support, and Razorpay donation system."
     },
     {
-      id: "aether-ai",
-      title: "AETHER AI",
-      headline: "Think beyond the obvious.",
-      role: "Lead Full-Stack Developer",
-      client: "Aether Cognitive Labs",
-      stack: "React, Next.js, OpenAI API, Tailwind",
+      id: "work-in-progress",
+      title: "WORKING ON IT",
+      headline: "Architecting the next high-performance digital experience.",
+      role: "Full Stack Engineer & AI Architect",
+      client: "Next Production Release // 2026",
+      stack: "Next.js 15, React 19, TypeScript, Full-Stack MERN, Tailwind CSS",
       year: "2026",
-      image: "/assets/work-aether.jpg",
+      image: "/assets/work-in-progress.jpg",
       liveUrl: "#",
-      description: "Autonomous reasoning interface designed for multi-modal agent workflows with real-time streaming synthesis and markdown canvas."
-    },
-    {
-      id: "afterform-s01",
-      title: "AFTERFORM S01",
-      headline: "Form follows computational emotion.",
-      role: "Creative Developer",
-      client: "Afterform Atelier",
-      stack: "Three.js, GLSL, WebGL, React",
-      year: "2026",
-      image: "/assets/work-afterform.jpg",
-      liveUrl: "#",
-      description: "Digital haute-couture showcase with procedural cloth physics, realtime ambient lighting, and bespoke audio-reactive interactions."
-    },
-    {
-      id: "maison-eleara",
-      title: "MAISON ÉLEARA",
-      headline: "Poetry in haute perfumery.",
-      role: "E-Commerce Architect",
-      client: "Éleara Parfums Paris",
-      stack: "Shopify Hydrogen, React, Tailwind CSS",
-      year: "2026",
-      image: "/assets/work-eleara.jpg",
-      liveUrl: "#",
-      description: "Ultra-luxury fragrance digital maison with interactive olfactive pyramids, custom notes visualizer, and worldwide express checkout."
+      description: "Currently under active development. Engineering a scalable, production-grade full-stack platform with high-velocity data pipelines and modern user experience."
     }
   ],
 
