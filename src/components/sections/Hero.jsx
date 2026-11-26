@@ -28,23 +28,23 @@ export default function Hero() {
       </div>
 
       {/* CENTERPIECE: Oversized EXPLORE MY PORTFOLIO with Overlapping Silhouette (Frames 3 & 4) */}
-      <div className="relative z-10 flex-1 flex flex-col items-center justify-center w-full max-w-7xl mx-auto my-auto">
+      <div className="relative z-10 flex-1 flex flex-col items-center justify-start sm:justify-start lg:justify-center w-full max-w-7xl mx-auto my-auto min-h-[460px] sm:min-h-[520px] md:min-h-[580px] pt-2 sm:pt-4 lg:pt-0">
         
         {/* Layer 1: Giant EXPLORE MY PORTFOLIO Headline */}
-        <div className="w-full text-center relative z-10 pt-2 sm:pt-0">
-          <h1 className="font-anton text-4xl sm:text-7xl md:text-9xl lg:text-[132px] font-black uppercase tracking-tight text-[#08080a] leading-[0.9]">
+        <div className="w-full text-center relative z-10 pt-1 sm:pt-2 lg:pt-0">
+          <h1 className="font-anton text-[clamp(3.4rem,16.2vw,5.5rem)] sm:text-7xl md:text-9xl lg:text-[165px] xl:text-[200px] 2xl:text-[230px] font-black uppercase tracking-tight text-[#08080a] leading-[0.86] drop-shadow-sm">
             EXPLORE MY
           </h1>
 
-          <div className="font-anton text-4xl sm:text-7xl md:text-9xl lg:text-[138px] font-black uppercase tracking-tight text-black/20 leading-[0.88] mt-0 sm:-mt-3">
+          <div className="font-anton text-[clamp(3.8rem,18vw,6rem)] sm:text-7xl md:text-9xl lg:text-[175px] xl:text-[215px] 2xl:text-[245px] font-black uppercase tracking-tight text-[#F20D20] leading-[0.84] -mt-1.5 sm:-mt-4 md:-mt-6 lg:-mt-7">
             PORTFOLIO
           </div>
         </div>
 
         {/* Layer 2: Central Artistic Silhouette / Backlit Portrait overlapping PORTFOLIO */}
-        <div className="relative sm:absolute sm:bottom-0 left-1/2 -translate-x-1/2 w-[220px] sm:w-[340px] md:w-[400px] lg:w-[440px] pointer-events-none z-20 flex justify-center -mt-6 sm:mt-0">
+        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[210px] sm:w-[320px] md:w-[360px] lg:w-[400px] pointer-events-none z-20 flex justify-center">
           {useRealPhoto ? (
-            <div className="relative w-[200px] sm:w-[280px] md:w-[320px] aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl border-4 border-white/80">
+            <div className="relative w-[180px] sm:w-[250px] md:w-[280px] aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl border-4 border-white/80">
               <img
                 src={portfolioConfig.personal.portraitUrl}
                 alt="Aman Vishwakarma"
@@ -61,7 +61,7 @@ export default function Hero() {
               <img
                 src={portfolioConfig.personal.silhouetteUrl}
                 alt="Artistic Backlit Silhouette"
-                className="w-full h-auto max-h-[280px] sm:max-h-[380px] md:max-h-[440px] object-contain drop-shadow-[0_20px_40px_rgba(0,0,0,0.3)] filter contrast-125"
+                className="w-full h-auto max-h-[240px] sm:max-h-[330px] md:max-h-[380px] object-contain drop-shadow-[0_20px_40px_rgba(0,0,0,0.3)] filter contrast-125"
               />
             </div>
           )}
